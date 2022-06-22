@@ -1,11 +1,19 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState } from "react";
 
 const App = (props: { message: string }) => {
-  return(
+  const [count, setCount] = useState(0);
+
+  const increment = useCallback(() => {
+    setCount((count) => count + 1);
+  }, [count]);
+
+  return (
     <>
       <h1>{props.message}</h1>
       <h2>Count: {count}</h2>
-      <button>Increment</button>
+      <button onClick={increment}>Increment</button>
     </>
-  )
-}
+  );
+};
+
+export default App;
